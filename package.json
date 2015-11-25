@@ -1,0 +1,36 @@
+{
+  "name": "gulp-prepare-for-simple-concat",
+  "description": "Preparing source maps for simple concatenation.",
+  "version": "0.0.1",
+  "repository": "https://github.com/Pofigizm/gulp-prepare-for-simple-concat",
+  "author": "Denis Iogansen",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "sourcemap",
+    "concat"
+  ],
+  "dependencies": {
+    "concat-with-sourcemaps": "1.0.0",
+    "gulp-util": "3.0.1",
+    "through2": "0.6.3"
+  },
+  "devDependencies": {
+    "gulp": "3.8.7",
+    "gulp-sourcemaps": "1.1.4",
+    "istanbul": "0.3.2",
+    "mocha": "2.0.1",
+    "should": "5.0.0",
+    "stream-assert": "^2.0.3"
+  },
+  "scripts": {
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "license": "MIT"
+}
