@@ -7,7 +7,7 @@ module.exports = function(opts) {
   opts = opts || {};
 
   return through.obj(function(file, enc, cb) {
-    var concat, res;
+    var concat, prefix, header, footer, res;
 
     if (file.isNull()) {
       cb(null, file);
@@ -19,11 +19,19 @@ module.exports = function(opts) {
     }
 
     try {
-      opts.fileName = opts.fileName || '#';
+      opts.emptyName = opts.emptyName || '#';
+
+      if (opts.addInfo) {
+        prefix = opts.addInfoPrefix || '';
+        file.sourceMap.mappings = ';' + file.sourceMap.mappings + ';;';
+        header = new Buffer('// file start: ' + prefix + file.relative + '\n');
+        footer = new Buffer('\n// file end: ' + prefix + file.relative + '\n');
+        file.contents = Buffer.concat([header, file.contents, footer]);
+      }
 
       concat = new Concat(true, file.relative);
       concat.add(file.relative, file.contents, file.sourceMap);
-      concat.add(opts.fileName, new Buffer(''), {
+      concat.add(opts.emptyName, new Buffer(''), {
         sourcesContent: ['\n']
       });
 
