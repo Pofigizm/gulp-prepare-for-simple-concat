@@ -24,8 +24,8 @@ module.exports = function(opts) {
       if (opts.addInfo) {
         prefix = opts.addInfoPrefix || '';
         file.sourceMap.mappings = ';' + file.sourceMap.mappings + ';;';
-        header = new Buffer('// file start: ' + prefix + file.relative + '\n');
-        footer = new Buffer('\n// file end: ' + prefix + file.relative + '\n');
+        header = new Buffer('/* >>> file start: ' + prefix + file.relative + ' */\n');
+        footer = new Buffer('\n/* <<< file end: ' + prefix + file.relative + ' */\n');
         file.contents = Buffer.concat([header, file.contents, footer]);
       }
 
