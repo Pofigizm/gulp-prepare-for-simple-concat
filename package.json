@@ -1,7 +1,7 @@
 {
   "name": "gulp-prepare-for-simple-concat",
   "description": "Preparing source maps for simple concatenation.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/Pofigizm/gulp-prepare-for-simple-concat",
   "author": "Denis Iogansen",
   "files": [
